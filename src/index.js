@@ -5,6 +5,15 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+
+Vue.use(ElementUI);
+
+
+
 import Index from './components/Index.vue'
 import C1 from './components/C1.vue'
 import C2 from './components/C2.vue'

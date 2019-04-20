@@ -1,21 +1,16 @@
 
 const path = require('path');
 
-// module.exports = {
-//   entry: './src/index.js',
-//   output: {
-//     path: path.resolve(__dirname, 'dist'),
-//     filename: 'bundle.js'
-//   }
-// };
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 var WebpackCleanPlugin = require('webpack-clean-plugin');
 
+var production=process.env.production
+
 module.exports = {
 
-    mode:'development',
+    mode:production=='true'?'production':'development',
     entry:{
         main:'./src/index.js'
     },
@@ -50,6 +45,13 @@ module.exports = {
             'vue-style-loader',
             'css-loader'
           ]
+        },
+        {
+          test : /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9=&.]+)?$/,
+          loader : 'file-loader',
+          options: {
+            name: '[name].[ext]',
+          },
         }
       ]
     },
